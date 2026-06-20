@@ -1,0 +1,199 @@
+/* src/styles/transitions.css — 全局过渡动画 */
+
+/* ===== 页面切换 ===== */
+.page-fade-enter-active,
+.page-fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.page-fade-enter-from,
+.page-fade-leave-to {
+  opacity: 0;
+}
+
+/* ===== 弹窗动画 ===== */
+.dialog-scale-enter-active {
+  animation: dialog-in 0.2s ease-out;
+}
+
+.dialog-scale-leave-active {
+  animation: dialog-out 0.15s ease;
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes dialog-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+/* ===== 渐现（Alert / 通知类） ===== */
+.fade-slide-enter-active {
+  animation: fade-slide-in 0.25s ease;
+}
+
+.fade-slide-leave-active {
+  animation: fade-slide-out 0.2s ease;
+}
+
+@keyframes fade-slide-in {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 200px;
+  }
+}
+
+@keyframes fade-slide-out {
+  from {
+    opacity: 1;
+    max-height: 200px;
+  }
+  to {
+    opacity: 0;
+    max-height: 0;
+  }
+}
+
+/* ===== 侧边栏菜单文字渐现 ===== */
+.menu-text-enter-active {
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+}
+
+.menu-text-enter-from {
+  opacity: 0;
+  transform: translateX(4px);
+}
+
+/* ===== 卡片 hover 上浮 ===== */
+.card-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* ===== 卡片入场（stagger 支持） ===== */
+.card-enter {
+  animation: card-in 0.45s ease-out both;
+  animation-delay: calc(var(--i, 0) * 0.08s);
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== 统计数字跳动 ===== */
+@keyframes count-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.count-animate {
+  animation: count-in 0.5s ease-out both;
+}
+
+/* ===== 面板滑入滑出（底部预览面板） ===== */
+.panel-slide-enter-active {
+  animation: panel-slide-in 0.3s ease-out;
+}
+
+.panel-slide-leave-active {
+  animation: panel-slide-out 0.25s ease-in;
+}
+
+@keyframes panel-slide-in {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes panel-slide-out {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+/* ===== 脉冲动画（上传区文件指示器） ===== */
+@keyframes pulse-border {
+  0%, 100% {
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 0 hsla(var(--shade-hue), 70%, 55%, 0.1);
+  }
+  50% {
+    border-color: hsl(var(--shade-hue), 60%, 55%);
+    box-shadow: 0 0 0 6px hsla(var(--shade-hue), 70%, 55%, 0);
+  }
+}
+
+.pulse-active {
+  animation: pulse-border 2s ease-in-out infinite;
+}
+
+/* ===== 行滑出（删除/接受后） ===== */
+@keyframes row-slide-out {
+  to {
+    opacity: 0;
+    transform: translateX(24px);
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+.row-leaving {
+  animation: row-slide-out 0.3s ease forwards;
+}
+
+/* ===== 总分弹跳 ===== */
+@keyframes score-bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); color: hsl(var(--shade-hue), 70%, 55%); }
+}
+
+.score-bounce {
+  animation: score-bounce 0.3s ease;
+}

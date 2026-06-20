@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: paper-generator-system
+  profiles:
+    active: local
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+server:
+  port: 8080
+
+paper:
+  upload:
+    base-dir: ${user.home}/paper-data/uploads
+  export:
+    base-dir: ${user.home}/paper-data/exports
+
+agent:
+  service:
+    base-url: http://localhost:8001
+    connect-timeout: 10000
+    read-timeout: 1200000
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto

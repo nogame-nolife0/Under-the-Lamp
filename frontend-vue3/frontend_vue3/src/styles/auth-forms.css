@@ -1,0 +1,224 @@
+/* 登录/注册页 — 台灯色相驱动内部主题 */
+
+.login-page,
+.register-page {
+  color-scheme: dark;
+  --color-primary: hsl(var(--shade-hue), 70%, 55%);
+  --color-primary-hover: hsl(var(--shade-hue), 72%, 48%);
+  --color-primary-light: hsla(var(--shade-hue), 70%, 55%, 0.12);
+  --color-primary-border: hsla(var(--shade-hue), 60%, 55%, 0.35);
+  --color-primary-glow: hsla(var(--shade-hue), 80%, 55%, 0.25);
+  --btn-gradient: linear-gradient(135deg,
+    hsl(var(--shade-hue), 70%, 55%) 0%,
+    hsl(var(--shade-hue), 65%, 45%) 100%);
+  --btn-gradient-hover: linear-gradient(135deg,
+    hsl(var(--shade-hue), 72%, 50%) 0%,
+    hsl(var(--shade-hue), 68%, 40%) 100%);
+  --shadow-glow: 0 0 40px hsla(var(--shade-hue), 80%, 55%, 0.12),
+    0 0 80px hsla(var(--shade-hue), 80%, 55%, 0.05);
+  --el-color-primary: hsl(var(--shade-hue), 70%, 55%);
+  --el-color-primary-light-3: hsl(var(--shade-hue), 55%, 65%);
+  --el-color-primary-light-5: hsl(var(--shade-hue), 45%, 72%);
+  --el-color-primary-light-7: hsla(var(--shade-hue), 50%, 55%, 0.2);
+  --el-color-primary-light-8: hsla(var(--shade-hue), 50%, 55%, 0.12);
+  --el-color-primary-light-9: hsla(var(--shade-hue), 50%, 55%, 0.06);
+  --el-color-primary-dark-2: hsl(var(--shade-hue), 72%, 45%);
+  --el-input-focus-border-color: hsl(var(--shade-hue), 70%, 55%);
+}
+
+.login-page {
+  position: relative;
+}
+
+.register-page {
+  position: relative;
+}
+
+.login-page.lamp-on::before,
+.register-page.lamp-on::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 55% 45% at 28% 38%,
+    hsla(var(--shade-hue), 85%, 60%, 0.1),
+    transparent 70%);
+  pointer-events: none;
+  transition: background 0.8s ease;
+  z-index: 0;
+}
+
+.login-page > *,
+.register-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+.login-page .login-card,
+.register-page .register-card,
+.login-page .login-card .submit-btn,
+.register-page .register-card .submit-btn,
+.login-page .login-card .el-button.is-link,
+.register-page .register-card .el-button.is-link,
+.login-page .login-card .el-input__wrapper,
+.register-page .register-card .el-input__wrapper {
+  transition: border-color 0.6s ease, box-shadow 0.6s ease, background 0.6s ease, color 0.6s ease;
+}
+
+.login-page .login-card .el-button--primary:not(.is-link),
+.register-page .register-card .el-button--primary:not(.is-link) {
+  background: var(--btn-gradient) !important;
+  border: none !important;
+  box-shadow: 0 4px 20px hsla(var(--shade-hue), 70%, 50%, 0.22) !important;
+}
+
+.login-page .login-card .el-button--primary:not(.is-link):hover,
+.register-page .register-card .el-button--primary:not(.is-link):hover {
+  background: var(--btn-gradient-hover) !important;
+  box-shadow: 0 6px 24px hsla(var(--shade-hue), 70%, 50%, 0.32) !important;
+}
+
+/* 登录/注册页输入框 — 与卡片背景融为一体，无内外色差 */
+
+.login-page .login-card .el-input,
+.register-page .register-card .el-input,
+.login-page .el-dialog .el-input {
+  --el-input-bg-color: transparent;
+  --el-input-border-color: rgba(255, 255, 255, 0.1);
+  --el-input-hover-border-color: rgba(255, 255, 255, 0.14);
+  --el-input-focus-border-color: hsla(var(--shade-hue), 55%, 58%, 0.45);
+}
+
+.login-page .login-card .el-input__wrapper,
+.login-page .login-card .el-input .el-input__wrapper,
+.register-page .register-card .el-input__wrapper,
+.register-page .register-card .el-input .el-input__wrapper,
+.login-page .el-dialog .el-input__wrapper,
+.login-page .el-dialog .el-input .el-input__wrapper {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+  overflow: hidden;
+}
+
+.login-page .login-card .el-input__wrapper:hover,
+.register-page .register-card .el-input__wrapper:hover,
+.login-page .el-dialog .el-input__wrapper:hover {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  box-shadow: none !important;
+}
+
+.login-page .login-card .el-input.is-focus .el-input__wrapper,
+.register-page .register-card .el-input.is-focus .el-input__wrapper,
+.login-page .el-dialog .el-input.is-focus .el-input__wrapper {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-color: hsla(var(--shade-hue), 55%, 58%, 0.45) !important;
+  box-shadow: 0 0 0 1px hsla(var(--shade-hue), 55%, 58%, 0.2) !important;
+}
+
+.login-page .login-card .el-input__inner,
+.login-page .login-card .el-input .el-input__inner,
+.login-page .login-card .el-input__wrapper input,
+.register-page .register-card .el-input__inner,
+.register-page .register-card .el-input .el-input__inner,
+.register-page .register-card .el-input__wrapper input,
+.login-page .el-dialog .el-input__inner,
+.login-page .el-dialog .el-input .el-input__inner,
+.login-page .el-dialog .el-input__wrapper input {
+  color: #f5f0eb !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  -webkit-text-fill-color: #f5f0eb !important;
+  caret-color: #f5f0eb;
+}
+
+.login-page .login-card .el-input__inner:placeholder-shown,
+.login-page .login-card .el-input__wrapper input:placeholder-shown,
+.register-page .register-card .el-input__inner:placeholder-shown,
+.register-page .register-card .el-input__wrapper input:placeholder-shown,
+.login-page .el-dialog .el-input__inner:placeholder-shown,
+.login-page .el-dialog .el-input__wrapper input:placeholder-shown {
+  color: var(--color-text-secondary) !important;
+  -webkit-text-fill-color: var(--color-text-secondary) !important;
+}
+
+.login-page .login-card .el-input__inner::placeholder,
+.register-page .register-card .el-input__inner::placeholder,
+.login-page .el-dialog .el-input__inner::placeholder {
+  color: var(--color-text-secondary) !important;
+  -webkit-text-fill-color: var(--color-text-secondary) !important;
+}
+
+/* 自动填充：禁止内阴影色块，避免圆角外框内露出直角深色矩形 */
+.login-page .login-card .el-input__inner:-webkit-autofill,
+.login-page .login-card .el-input__inner:-webkit-autofill:hover,
+.login-page .login-card .el-input__inner:-webkit-autofill:focus,
+.login-page .login-card .el-input__wrapper input:-webkit-autofill,
+.login-page .login-card .el-input__wrapper input:-webkit-autofill:hover,
+.login-page .login-card .el-input__wrapper input:-webkit-autofill:focus,
+.register-page .register-card .el-input__inner:-webkit-autofill,
+.register-page .register-card .el-input__inner:-webkit-autofill:hover,
+.register-page .register-card .el-input__inner:-webkit-autofill:focus,
+.register-page .register-card .el-input__wrapper input:-webkit-autofill,
+.register-page .register-card .el-input__wrapper input:-webkit-autofill:hover,
+.register-page .register-card .el-input__wrapper input:-webkit-autofill:focus,
+.login-page .el-dialog .el-input__inner:-webkit-autofill,
+.login-page .el-dialog .el-input__inner:-webkit-autofill:hover,
+.login-page .el-dialog .el-input__inner:-webkit-autofill:focus,
+.login-page .el-dialog .el-input__wrapper input:-webkit-autofill,
+.login-page .el-dialog .el-input__wrapper input:-webkit-autofill:hover,
+.login-page .el-dialog .el-input__wrapper input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #f5f0eb !important;
+  -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+  transition: background-color 99999s ease-out 0s, color 99999s ease-out 0s;
+}
+
+.login-page .login-card .el-input__password,
+.register-page .register-card .el-input__password,
+.login-page .login-card .el-input .el-input__icon,
+.register-page .register-card .el-input .el-input__icon {
+  color: #8c8076 !important;
+}
+
+.login-page .login-card .el-button.is-link,
+.register-page .register-card .el-button.is-link {
+  color: hsl(var(--shade-hue), 65%, 62%) !important;
+}
+
+.login-page .login-card .el-button.is-link:hover,
+.register-page .register-card .el-button.is-link:hover {
+  color: hsl(var(--shade-hue), 70%, 70%) !important;
+}
+
+/* 忘记密码弹窗 — 跟随台灯色相 */
+.login-page .el-dialog {
+  --el-color-primary: hsl(var(--shade-hue), 70%, 55%);
+  border-color: hsla(var(--shade-hue), 50%, 55%, 0.2) !important;
+  box-shadow: 0 0 40px hsla(var(--shade-hue), 80%, 55%, 0.08),
+    0 16px 48px rgba(0, 0, 0, 0.35) !important;
+  transition: border-color 0.6s ease, box-shadow 0.6s ease;
+}
+
+.login-page .el-dialog .el-button--primary {
+  background: var(--btn-gradient) !important;
+  border: none !important;
+  box-shadow: 0 4px 16px hsla(var(--shade-hue), 70%, 50%, 0.22) !important;
+  transition: background 0.6s ease, box-shadow 0.6s ease;
+}
+
+.login-page .el-dialog .el-button--primary:hover {
+  background: var(--btn-gradient-hover) !important;
+  box-shadow: 0 6px 22px hsla(var(--shade-hue), 70%, 50%, 0.32) !important;
+}
+
+.login-page .el-dialog .el-input.is-focus .el-input__wrapper {
+  border-color: hsla(var(--shade-hue), 55%, 58%, 0.45) !important;
+  box-shadow: 0 0 0 1px hsla(var(--shade-hue), 55%, 58%, 0.2) !important;
+}

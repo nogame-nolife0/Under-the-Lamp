@@ -1,0 +1,140 @@
+<h2>每次开灯 — 随机 hue 变色效果</h2>
+<p class="subtitle">拉绳开灯时 <code>Math.random() * 360</code> 生成新 hue，CSS 变量 <code>--shade-hue</code> 驱动全页面颜色联动</p>
+
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+
+  <!-- hue=30 暖金 -->
+  <div class="card">
+    <div class="card-image" style="background:linear-gradient(180deg, #1a1f2e 0%, #1e2435 100%);padding:28px 20px;display:flex;flex-direction:column;align-items:center;gap:12px;border-radius:12px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 30%, hsla(30,85%,60%,0.12) 0%, transparent 60%);pointer-events:none;"></div>
+      <svg width="80" height="140" viewBox="0 0 200 380">
+        <polygon points="100,175 40,340 160,340" fill="hsla(30,85%,60%,0.25)"/>
+        <rect x="62" y="320" width="76" height="15" rx="7" fill="#d5cfc8"/>
+        <path d="M35 195 Q35 148 100 135 Q165 148 165 195 Z" fill="#e8e3de"/>
+        <circle cx="100" cy="210" r="14" fill="hsl(30,85%,60%)" filter="url(#g)"/>
+        <g transform="translate(100,165)"><path d="M-16 -2 Q-13 -7 -10 -2" fill="none" stroke="#5a4a3a" stroke-width="2" stroke-linecap="round"/><path d="M10 -2 Q13 -7 16 -2" fill="none" stroke="#5a4a3a" stroke-width="2" stroke-linecap="round"/><ellipse cx="0" cy="5" rx="5" ry="3.5" fill="hsl(30,80%,55%)"/></g>
+        <line x1="145" y1="190" x2="145" y2="270" stroke="#a0988e" stroke-width="2"/>
+        <circle cx="145" cy="280" r="10" fill="none" stroke="#b8b0a8" stroke-width="2.5"/>
+      </svg>
+      <div style="text-align:center;">
+        <div style="width:30px;height:30px;background:hsl(30,85%,60%);border-radius:50%;margin:0 auto 6px;box-shadow:0 0 20px hsla(30,85%,60%,0.5);"></div>
+        <span style="color:#f5f0eb;font-size:14px;font-weight:600;">hue = 30°</span>
+        <span style="display:block;color:#a0988e;font-size:10px;">暖金 · 默认色</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- hue=340 玫红 -->
+  <div class="card">
+    <div class="card-image" style="background:linear-gradient(180deg, #1a1f2e 0%, #1e2435 100%);padding:28px 20px;display:flex;flex-direction:column;align-items:center;gap:12px;border-radius:12px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 30%, hsla(340,85%,60%,0.12) 0%, transparent 60%);pointer-events:none;"></div>
+      <svg width="80" height="140" viewBox="0 0 200 380">
+        <polygon points="100,175 40,340 160,340" fill="hsla(340,85%,60%,0.25)"/>
+        <rect x="62" y="320" width="76" height="15" rx="7" fill="#d5cfc8"/>
+        <path d="M35 195 Q35 148 100 135 Q165 148 165 195 Z" fill="#e8e3de"/>
+        <circle cx="100" cy="210" r="14" fill="hsl(340,85%,60%)" filter="url(#g)"/>
+        <g transform="translate(100,165)"><path d="M-16 -2 Q-13 -7 -10 -2" fill="none" stroke="#5a4a3a" stroke-width="2" stroke-linecap="round"/><path d="M10 -2 Q13 -7 16 -2" fill="none" stroke="#5a4a3a" stroke-width="2" stroke-linecap="round"/><ellipse cx="0" cy="5" rx="5" ry="3.5" fill="hsl(340,80%,55%)"/></g>
+        <line x1="145" y1="190" x2="145" y2="270" stroke="#a0988e" stroke-width="2"/>
+        <circle cx="145" cy="280" r="10" fill="none" stroke="#b8b0a8" stroke-width="2.5"/>
+      </svg>
+      <div style="text-align:center;">
+        <div style="width:30px;height:30px;background:hsl(340,85%,60%);border-radius:50%;margin:0 auto 6px;box-shadow:0 0 20px hsla(340,85%,60%,0.5);"></div>
+        <span style="color:#f5f0eb;font-size:14px;font-weight:600;">hue = 340°</span>
+        <span style="display:block;color:#a0988e;font-size:10px;">玫红 · 品牌色</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- hue=200 冰蓝 -->
+  <div class="card">
+    <div class="card-image" style="background:linear-gradient(180deg, #1a1f2e 0%, #1e2435 100%);padding:28px 20px;display:flex;flex-direction:column;align-items:center;gap:12px;border-radius:12px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 30%, hsla(200,70%,50%,0.12) 0%, transparent 60%);pointer-events:none;"></div>
+      <svg width="80" height="140" viewBox="0 0 200 380">
+        <polygon points="100,175 40,340 160,340" fill="hsla(200,70%,50%,0.25)"/>
+        <rect x="62" y="320" width="76" height="15" rx="7" fill="#d5cfc8"/>
+        <path d="M35 195 Q35 148 100 135 Q165 148 165 195 Z" fill="#e8e3de"/>
+        <circle cx="100" cy="210" r="14" fill="hsl(200,70%,50%)" filter="url(#g)"/>
+        <g transform="translate(100,165)"><path d="M-16 -2 Q-13 -7 -10 -2" fill="none" stroke="#5a4a3a" stroke-width="2" stroke-linecap="round"/><path d="M10 -2 Q13 -7 16 -2" fill="none" stroke="#5a4a3a" stroke-width="2" stroke-linecap="round"/><ellipse cx="0" cy="5" rx="5" ry="3.5" fill="hsl(200,70%,50%)"/></g>
+        <line x1="145" y1="190" x2="145" y2="270" stroke="#a0988e" stroke-width="2"/>
+        <circle cx="145" cy="280" r="10" fill="none" stroke="#b8b0a8" stroke-width="2.5"/>
+      </svg>
+      <div style="text-align:center;">
+        <div style="width:30px;height:30px;background:hsl(200,70%,50%);border-radius:50%;margin:0 auto 6px;box-shadow:0 0 20px hsla(200,70%,50%,0.5);"></div>
+        <span style="color:#f5f0eb;font-size:14px;font-weight:600;">hue = 200°</span>
+        <span style="display:block;color:#a0988e;font-size:10px;">冰蓝 · 清爽</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- hue=140 薄荷绿 -->
+  <div class="card">
+    <div class="card-image" style="background:linear-gradient(180deg, #1a1f2e 0%, #1e2435 100%);padding:28px 20px;display:flex;flex-direction:column;align-items:center;gap:12px;border-radius:12px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 30%, hsla(140,60%,45%,0.12) 0%, transparent 60%);pointer-events:none;"></div>
+      <svg width="80" height="140" viewBox="0 0 200 380">
+        <polygon points="100,175 40,340 160,340" fill="hsla(140,60%,45%,0.25)"/>
+        <circle cx="100" cy="210" r="14" fill="hsl(140,60%,45%)" filter="url(#g)"/>
+        <g transform="translate(100,165)"><path d="M-16 -2 Q-13 -7 -10 -2" fill="none" stroke="#5a4a3a" stroke-width="2" stroke-linecap="round"/><path d="M10 -2 Q13 -7 16 -2" fill="none" stroke="#5a4a3a" stroke-width="2" stroke-linecap="round"/><ellipse cx="0" cy="5" rx="5" ry="3.5" fill="hsl(140,60%,45%)"/></g>
+      </svg>
+      <div style="text-align:center;">
+        <div style="width:30px;height:30px;background:hsl(140,60%,45%);border-radius:50%;margin:0 auto 6px;box-shadow:0 0 20px hsla(140,60%,45%,0.5);"></div>
+        <span style="color:#f5f0eb;font-size:14px;font-weight:600;">hue = 140°</span>
+        <span style="display:block;color:#a0988e;font-size:10px;">薄荷绿</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- hue=270 紫 -->
+  <div class="card">
+    <div class="card-image" style="background:linear-gradient(180deg, #1a1f2e 0%, #1e2435 100%);padding:28px 20px;display:flex;flex-direction:column;align-items:center;gap:12px;border-radius:12px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 30%, hsla(270,60%,55%,0.12) 0%, transparent 60%);pointer-events:none;"></div>
+      <svg width="80" height="140" viewBox="0 0 200 380">
+        <polygon points="100,175 40,340 160,340" fill="hsla(270,60%,55%,0.25)"/>
+        <circle cx="100" cy="210" r="14" fill="hsl(270,60%,55%)" filter="url(#g)"/>
+        <g transform="translate(100,165)"><path d="M-16 -2 Q-13 -7 -10 -2" fill="none" stroke="#5a4a3a" stroke-width="2" stroke-linecap="round"/><path d="M10 -2 Q13 -7 16 -2" fill="none" stroke="#5a4a3a" stroke-width="2" stroke-linecap="round"/><ellipse cx="0" cy="5" rx="5" ry="3.5" fill="hsl(270,60%,55%)"/></g>
+      </svg>
+      <div style="text-align:center;">
+        <div style="width:30px;height:30px;background:hsl(270,60%,55%);border-radius:50%;margin:0 auto 6px;box-shadow:0 0 20px hsla(270,60%,55%,0.5);"></div>
+        <span style="color:#f5f0eb;font-size:14px;font-weight:600;">hue = 270°</span>
+        <span style="display:block;color:#a0988e;font-size:10px;">淡紫 · 梦幻</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- hue=0 暖红 -->
+  <div class="card">
+    <div class="card-image" style="background:linear-gradient(180deg, #1a1f2e 0%, #1e2435 100%);padding:28px 20px;display:flex;flex-direction:column;align-items:center;gap:12px;border-radius:12px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 30%, hsla(0,70%,55%,0.12) 0%, transparent 60%);pointer-events:none;"></div>
+      <svg width="80" height="140" viewBox="0 0 200 380">
+        <polygon points="100,175 40,340 160,340" fill="hsla(0,70%,55%,0.25)"/>
+        <circle cx="100" cy="210" r="14" fill="hsl(0,70%,55%)" filter="url(#g)"/>
+        <g transform="translate(100,165)"><path d="M-16 -2 Q-13 -7 -10 -2" fill="none" stroke="#5a4a3a" stroke-width="2" stroke-linecap="round"/><path d="M10 -2 Q13 -7 16 -2" fill="none" stroke="#5a4a3a" stroke-width="2" stroke-linecap="round"/><ellipse cx="0" cy="5" rx="5" ry="3.5" fill="hsl(0,70%,55%)"/></g>
+      </svg>
+      <div style="text-align:center;">
+        <div style="width:30px;height:30px;background:hsl(0,70%,55%);border-radius:50%;margin:0 auto 6px;box-shadow:0 0 20px hsla(0,70%,55%,0.5);"></div>
+        <span style="color:#f5f0eb;font-size:14px;font-weight:600;">hue = 0°</span>
+        <span style="display:block;color:#a0988e;font-size:10px;">暖红 · 热烈</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top:20px;">
+  <h3>CSS 变量联动公式</h3>
+  <div class="card">
+    <div class="card-body" style="font-family:monospace;font-size:13px;line-height:2;">
+      <div>--shade-hue: <span style="color:#f5a623;">&lt;随机 0~360&gt;</span>;</div>
+      <div style="margin-top:8px;color:#8c8076;">/* 灯泡 + 光晕 + 锥形光 */</div>
+      <div>bulb: <span style="color:#f5a623;">hsl(var(--shade-hue), 85%, 60%)</span></div>
+      <div>glow: <span style="color:#f5a623;">hsla(var(--shade-hue), 85%, 60%, 0.5)</span></div>
+      <div>cone: <span style="color:#f5a623;">hsla(var(--shade-hue), 85%, 60%, 0.25)</span></div>
+      <div style="margin-top:8px;color:#8c8076;">/* 卡片边框 + 发光 */</div>
+      <div>card border: <span style="color:#f5a623;">hsla(var(--shade-hue), 80%, 60%, 0.3)</span></div>
+      <div>card shadow: <span style="color:#f5a623;">hsla(var(--shade-hue), 80%, 55%, 0.1)</span></div>
+      <div style="margin-top:8px;color:#8c8076;">/* 按钮 + 输入框获焦 */</div>
+      <div>button bg: <span style="color:#f5a623;">hsl(var(--shade-hue), 70%, 50%)</span></div>
+      <div>input focus: <span style="color:#f5a623;">hsla(var(--shade-hue), 70%, 55%, 0.2)</span></div>
+      <div style="margin-top:8px;color:#8c8076;">/* 台灯嘴巴 */</div>
+      <div>mouth: <span style="color:#f5a623;">hsl(var(--shade-hue), 75%, 55%)</span></div>
+    </div>
+  </div>
+</div>

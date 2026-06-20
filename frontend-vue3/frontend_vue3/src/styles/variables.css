@@ -1,0 +1,109 @@
+/* 设计令牌 — 与登录页「台灯书房」深色暖调一致 */
+
+:root {
+  --shade-hue: 32;
+
+  /* 背景层级 */
+  --color-bg-deep: #141820;
+  --color-bg-base: #1a1f2e;
+  --color-bg-elevated: #1e2435;
+  --color-bg-panel: rgba(30, 36, 53, 0.65);
+  --color-bg-glass: rgba(255, 255, 255, 0.04);
+  --color-bg-glass-hover: rgba(255, 255, 255, 0.07);
+  --color-bg-glass-active: rgba(255, 255, 255, 0.1);
+  --color-bg-sidebar: rgba(22, 27, 40, 0.82);
+  --color-bg-card: rgba(30, 36, 53, 0.55);
+  --color-bg-header: rgba(26, 31, 46, 0.75);
+  --color-bg-hover: hsla(var(--shade-hue), 50%, 50%, 0.08);
+  --color-bg-stripe: rgba(255, 255, 255, 0.02);
+  --color-bg-selected: hsla(var(--shade-hue), 55%, 50%, 0.12);
+  --color-bg-input: rgba(255, 255, 255, 0.03);
+  --color-bg-input-focus: hsla(var(--shade-hue), 60%, 50%, 0.06);
+
+  /* 主色 — 暖琥珀灯色 */
+  --color-primary: hsl(var(--shade-hue), 70%, 55%);
+  --color-primary-hover: hsl(var(--shade-hue), 72%, 48%);
+  --color-primary-active: hsl(var(--shade-hue), 74%, 42%);
+  --color-primary-light: hsla(var(--shade-hue), 70%, 55%, 0.12);
+  --color-primary-border: hsla(var(--shade-hue), 60%, 55%, 0.35);
+  --color-primary-glow: hsla(var(--shade-hue), 80%, 55%, 0.25);
+
+  /* 文字 */
+  --color-text-primary: #f5f0eb;
+  --color-text-secondary: #8c8076;
+  --color-text-placeholder: var(--color-text-secondary);
+  --color-text-sidebar: #a89f96;
+  --color-text-sidebar-active: #f5f0eb;
+  --color-text-muted: #5c554e;
+
+  /* 边框 */
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-light: rgba(255, 255, 255, 0.05);
+  --color-border-strong: rgba(255, 255, 255, 0.14);
+
+  /* 语义色 */
+  --color-success: #6ec9a0;
+  --color-success-light: rgba(110, 201, 160, 0.12);
+  --color-danger: #e87888;
+  --color-danger-light: rgba(232, 120, 136, 0.12);
+  --color-warning: #e8b06a;
+  --color-warning-light: rgba(232, 176, 106, 0.12);
+  --color-info: #9a8ec4;
+  --color-info-light: rgba(154, 142, 196, 0.12);
+
+  /* 圆角 */
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --radius-card: 16px;
+  --radius-auth: 20px;
+  --radius-pill: 999px;
+
+  /* 阴影 */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.18);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.28);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.35);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  --shadow-card-hover: 0 12px 40px rgba(0, 0, 0, 0.32),
+    0 0 0 1px hsla(var(--shade-hue), 60%, 55%, 0.15);
+  --shadow-glow: 0 0 40px hsla(var(--shade-hue), 80%, 55%, 0.12),
+    0 0 80px hsla(var(--shade-hue), 80%, 55%, 0.05);
+
+  /* 过渡 */
+  --transition-fast: 0.15s ease;
+  --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* 排版 */
+  --font-display: 'Noto Serif SC', 'Songti SC', serif;
+  --font-family: 'Plus Jakarta Sans', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-size-sm: 13px;
+  --font-size-base: 14px;
+  --font-size-lg: 15px;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --line-height: 1.65;
+
+  /* 统计卡片 */
+  --color-stat-1: linear-gradient(135deg, hsla(var(--shade-hue), 50%, 45%, 0.18) 0%, rgba(255, 255, 255, 0.03) 100%);
+  --color-stat-2: linear-gradient(135deg, rgba(110, 201, 160, 0.15) 0%, rgba(255, 255, 255, 0.03) 100%);
+  --color-stat-3: linear-gradient(135deg, rgba(232, 176, 106, 0.14) 0%, rgba(255, 255, 255, 0.03) 100%);
+  --color-stat-4: linear-gradient(135deg, rgba(154, 142, 196, 0.14) 0%, rgba(255, 255, 255, 0.03) 100%);
+
+  /* 按钮 */
+  --btn-gradient: linear-gradient(135deg,
+    hsl(var(--shade-hue), 70%, 55%) 0%,
+    hsl(var(--shade-hue), 65%, 45%) 100%);
+  --btn-gradient-hover: linear-gradient(135deg,
+    hsl(var(--shade-hue), 72%, 50%) 0%,
+    hsl(var(--shade-hue), 68%, 40%) 100%);
+
+  /* 布局 */
+  --nav-width: 76px;
+  --nav-width-expanded: 232px;
+  --workspace-max: 1440px;
+  --header-height: 64px;
+}

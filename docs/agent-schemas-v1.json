@@ -1,0 +1,47 @@
+{
+  "$schema": "Python Agent 接口 JSON Schema 参考（与 api-contract-v1.md 同步）",
+  "parseWordRequest": {
+    "batchId": "string",
+    "filePath": "string",
+    "subject": "string",
+    "grade": "string",
+    "hints": {
+      "answerSectionKeywords": ["参考答案", "答案解析"]
+    }
+  },
+  "parseWordResponse": {
+    "code": 200,
+    "msg": "success",
+    "data": {
+      "batchId": "string",
+      "items": [
+        {
+          "seqNo": 1,
+          "stemRaw": "string",
+          "answerRaw": "string",
+          "analysisRaw": "string",
+          "options": ["A. ..."],
+          "questionType": "SHORT_ANSWER",
+          "difficulty": "MEDIUM",
+          "chapter": "string",
+          "knowledgePoints": ["string"],
+          "confidenceScore": 0.82,
+          "warnings": ["string"],
+          "images": [{ "placeholder": "img_001", "position": "stem" }],
+          "agentMeta": {}
+        }
+      ],
+      "parseSummary": {
+        "total": 15,
+        "highConfidence": 10,
+        "needsReview": 5
+      }
+    }
+  },
+  "chromaConfig": {
+    "enabled": false,
+    "note": "MVP 阶段 parse-word 不需要 Chroma；智能组卷上线时启用",
+    "persistDirectory": "./data/chroma",
+    "collectionName": "paper_questions"
+  }
+}

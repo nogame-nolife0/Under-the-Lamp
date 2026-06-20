@@ -1,0 +1,107 @@
+<h2>登录页与主应用色调衔接 — 三种方案</h2>
+<p class="subtitle">你的项目主色调是浅粉暖色系。登录页用深色是否合适？以下三种方案供选择。</p>
+
+<div class="section">
+  <h3>当前项目主色调回顾</h3>
+  <div class="cards">
+    <div class="card">
+      <div class="card-image" style="background:linear-gradient(135deg, #fdf2f4 0%, #faf8f9 40%, #f5f2f3 100%);padding:24px;display:flex;align-items:center;gap:14px;border-radius:8px;">
+        <div style="width:36px;height:36px;background:linear-gradient(135deg, #e8738a 0%, #d7657c 100%);border-radius:50%;"></div>
+        <div>
+          <span style="font-weight:600;color:#2d2427;">试卷出题系统</span>
+          <span style="display:block;font-size:11px;color:#8c7f84;">浅暖背景 · 柔粉主色 · 白卡片</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>方案 A：深夜台灯 + 粉色调灯光（推荐 ✅）</h3>
+  <p class="subtitle">背景深色，但灯光始终用粉色系（hue 340–355 范围），"台灯的光"就是你的品牌色</p>
+  <div style="display:flex;gap:14px;flex-wrap:wrap;">
+    <div class="card" style="flex:1;min-width:200px;">
+      <div class="card-image" style="background:#121921;padding:20px;text-align:center;border-radius:8px;">
+        <div style="width:50px;height:50px;background:radial-gradient(circle, #e8738a, rgba(232,115,138,0.4));border-radius:50%;margin:0 auto 8px;box-shadow:0 0 30px rgba(232,115,138,0.5);"></div>
+        <span style="color:#f0e6e8;font-size:13px;font-weight:500;">hue=348° 品牌粉</span>
+        <span style="display:block;color:#8c7f84;font-size:11px;margin-top:4px;">固定粉色系灯光</span>
+      </div>
+    </div>
+    <div class="card" style="flex:1;min-width:200px;">
+      <div class="card-image" style="background:#121921;padding:20px;text-align:center;border-radius:8px;">
+        <div style="width:50px;height:50px;background:radial-gradient(circle, #f2a3b3, rgba(242,163,179,0.4));border-radius:50%;margin:0 auto 8px;box-shadow:0 0 30px rgba(242,163,179,0.5);"></div>
+        <span style="color:#f0e6e8;font-size:13px;font-weight:500;">hue=350° 浅粉</span>
+        <span style="display:block;color:#8c7f84;font-size:11px;margin-top:4px;">柔和粉色灯光</span>
+      </div>
+    </div>
+    <div class="card" style="flex:1;min-width:200px;">
+      <div class="card-image" style="background:#121921;padding:20px;text-align:center;border-radius:8px;">
+        <div style="width:50px;height:50px;background:radial-gradient(circle, #d7657c, rgba(215,101,124,0.4));border-radius:50%;margin:0 auto 8px;box-shadow:0 0 30px rgba(215,101,124,0.5);"></div>
+        <span style="color:#f0e6e8;font-size:13px;font-weight:500;">hue=342° 深粉</span>
+        <span style="display:block;color:#8c7f84;font-size:11px;margin-top:4px;">浓郁粉色灯光</span>
+      </div>
+    </div>
+  </div>
+  <div class="pros-cons" style="margin-top:16px;">
+    <div class="pros"><h4>优点</h4><ul><li>灯光颜色 = 品牌色，天然衔接</li><li>深色背景让粉色发光效果更突出</li><li>登录页是独立入口，深色≠割裂，反而有"仪式感"</li></ul></div>
+    <div class="cons"><h4>潜在问题</h4><ul><li>从浅色主站跳转到深色登录页，视觉反差较大</li></ul></div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>方案 B：浅暖色背景 + 台灯装饰</h3>
+  <p class="subtitle">保持和主站一致的浅粉暖色背景，台灯作为页面装饰而非主导视觉</p>
+  <div class="card">
+    <div class="card-image" style="background:linear-gradient(135deg, #fdf2f4 0%, #faf8f9 40%, #f5f2f3 100%);padding:32px;display:flex;align-items:center;gap:40px;justify-content:center;border-radius:8px;flex-wrap:wrap;">
+      <div style="display:flex;flex-direction:column;align-items:center;">
+        <!-- 简化台灯 -->
+        <div style="width:80px;height:50px;background:linear-gradient(180deg, #fff, #faf8f9);clip-path:polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);border:1px solid #ece5e7;border-radius:6px 6px 0 0;position:relative;">
+          <div style="position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);width:50px;height:20px;background:radial-gradient(ellipse, #e8738a, rgba(232,115,138,0.1));border-radius:50%;filter:blur(6px);"></div>
+        </div>
+        <div style="width:20px;height:20px;background:radial-gradient(circle, #e8738a, rgba(232,115,138,0.4));border-radius:50%;margin-top:-3px;box-shadow:0 0 16px rgba(232,115,138,0.3);"></div>
+        <div style="width:3px;height:40px;background:#ece5e7;"></div>
+        <div style="width:50px;height:14px;background:#fff;border:1px solid #ece5e7;border-radius:0 0 8px 8px;"></div>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:28px 24px;width:280px;box-shadow:0 8px 40px rgba(45,36,39,0.08);">
+        <h3 style="margin:0 0 4px;color:#2d2427;font-size:18px;">欢迎回来</h3>
+        <p style="margin:0 0 20px;color:#8c7f84;font-size:13px;">登录您的账号</p>
+        <div style="border:1px solid #ece5e7;border-radius:8px;padding:10px 14px;margin-bottom:12px;color:#bfb4b8;font-size:13px;">手机号</div>
+        <div style="border:1px solid #ece5e7;border-radius:8px;padding:10px 14px;margin-bottom:16px;color:#bfb4b8;font-size:13px;">密码</div>
+        <div style="background:linear-gradient(135deg,#e8738a,#d7657c);border-radius:10px;padding:12px;text-align:center;color:#fff;font-weight:600;">登 录</div>
+        <div style="text-align:right;margin-top:10px;color:#8c7f84;font-size:12px;">忘记密码？</div>
+      </div>
+    </div>
+  </div>
+  <div class="pros-cons" style="margin-top:16px;">
+    <div class="pros"><h4>优点</h4><ul><li>与主站色调完全统一，无割裂感</li><li>台灯变为装饰点缀，不喧宾夺主</li></ul></div>
+    <div class="cons"><h4>潜在问题</h4><ul><li>"台灯照亮"的戏剧性效果大大削弱</li><li>少了深夜书房的设计冲击力</li></ul></div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>方案 C：混合过渡 — 深色底部 + 浅色登录卡片</h3>
+  <p class="subtitle">背景深色但卡片沿用主站白色/浅粉风格，"台灯光照"投射在熟悉的卡片上</p>
+  <div class="card">
+    <div class="card-image" style="background:linear-gradient(180deg, #121921 0%, #1a2430 60%, #1e2938 100%);padding:32px;display:flex;align-items:center;justify-content:center;gap:40px;border-radius:8px;flex-wrap:wrap;">
+      <div style="display:flex;flex-direction:column;align-items:center;">
+        <div style="width:100px;height:55px;background:linear-gradient(180deg, #4a5568, #2d3748);clip-path:polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);border-radius:6px 6px 0 0;"></div>
+        <div style="width:24px;height:24px;background:radial-gradient(circle, #e8738a, rgba(232,115,138,0.5));border-radius:50%;box-shadow:0 0 24px rgba(232,115,138,0.5);"></div>
+        <div style="width:3px;height:45px;background:#4a5568;"></div>
+        <div style="width:60px;height:16px;background:#2d3748;border-radius:0 0 8px 8px;"></div>
+      </div>
+      <!-- 白色卡片 — 和主站一致 -->
+      <div style="background:#fff;border-radius:16px;padding:32px 28px;width:300px;box-shadow:0 0 40px rgba(232,115,138,0.12),0 8px 32px rgba(0,0,0,0.2);border:1px solid rgba(232,115,138,0.25);">
+        <h3 style="margin:0 0 4px;color:#2d2427;font-size:18px;">欢迎回来</h3>
+        <p style="margin:0 0 24px;color:#8c7f84;font-size:13px;">登录您的账号</p>
+        <div style="border:1px solid #ece5e7;border-radius:8px;padding:10px 14px;margin-bottom:14px;color:#bfb4b8;font-size:14px;">手机号</div>
+        <div style="border:1px solid #ece5e7;border-radius:8px;padding:10px 14px;margin-bottom:20px;color:#bfb4b8;font-size:14px;">密码</div>
+        <div style="background:linear-gradient(135deg,#e8738a,#d7657c);border-radius:10px;padding:12px;text-align:center;color:#fff;font-weight:600;letter-spacing:4px;">登 录</div>
+        <div style="text-align:right;margin-top:12px;color:#8c7f84;font-size:12px;">忘记密码？</div>
+      </div>
+    </div>
+  </div>
+  <div class="pros-cons" style="margin-top:16px;">
+    <div class="pros"><h4>优点</h4><ul><li>保留了深夜台灯的氛围感</li><li>白色卡片给人安全感，和主站体验一致</li><li>粉色台灯光照投射在白卡片上，效果很自然</li></ul></div>
+    <div class="cons"><h4>潜在问题</h4><ul><li>元素较多，设计复杂度更高</li></ul></div>
+  </div>
+</div>

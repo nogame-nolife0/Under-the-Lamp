@@ -1,0 +1,142 @@
+<h2>台灯登录页 — 整体布局与灯光明暗状态</h2>
+<p class="subtitle">深夜色背景 (#121921)，台灯 SVG 左侧，登录表单右侧，flex 响应式布局</p>
+
+<div class="split">
+  <div class="mockup">
+    <div class="mockup-header">💡 灯光开启状态</div>
+    <div class="mockup-body">
+      <div style="display:flex;align-items:center;justify-content:center;background:#121921;min-height:400px;padding:40px;gap:48px;flex-wrap:wrap;border-radius:8px;position:relative;overflow:hidden;">
+        <!-- 模拟灯光放射状光晕 -->
+        <div style="position:absolute;top:-60%;left:-20%;width:140%;height:200%;background:radial-gradient(ellipse at 30% 40%, rgba(232,115,138,0.25), transparent 60%);pointer-events:none;"></div>
+
+        <!-- 台灯 SVG 占位 -->
+        <div style="width: 200px; height: 320px; display:flex; flex-direction:column; align-items:center; position:relative; z-index:1;">
+          <!-- 灯罩 -->
+          <div style="width:140px;height:80px;background:linear-gradient(180deg, #4a5568 0%, #2d3748 100%);clip-path:polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);border-radius:8px 8px 0 0;position:relative;">
+            <div style="position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);width:90px;height:30px;background:radial-gradient(ellipse, rgba(232,115,138,0.9), rgba(232,115,138,0.3));border-radius:50%;filter:blur(8px);"></div>
+          </div>
+          <!-- 灯泡 -->
+          <div style="width:36px;height:36px;background:radial-gradient(circle, rgba(232,115,138,1), rgba(232,115,138,0.6));border-radius:50%;margin-top:-5px;box-shadow:0 0 30px rgba(232,115,138,0.6),0 0 60px rgba(232,115,138,0.3);"></div>
+          <!-- 支架 -->
+          <div style="width:4px;height:60px;background:linear-gradient(180deg, #718096, #4a5568);margin-top:-2px;"></div>
+          <!-- 底座 -->
+          <div style="width:80px;height:20px;background:linear-gradient(180deg, #4a5568, #2d3748);border-radius:0 0 12px 12px;margin-top:-1px;position:relative;"></div>
+          <!-- 拉绳 -->
+          <div style="width:2px;height:50px;background:#8c7f84;position:absolute;bottom:-20px;left:40px;">
+            <div style="width:12px;height:12px;background:#6b5e63;border-radius:50%;position:absolute;bottom:-12px;left:-5px;"></div>
+          </div>
+        </div>
+
+        <!-- 表单 -->
+        <div style="width:300px;background:rgba(26,35,50,0.95);border:1px solid rgba(232,115,138,0.4);border-radius:16px;padding:32px 28px;z-index:1;box-shadow:0 0 40px rgba(232,115,138,0.15),0 8px 32px rgba(0,0,0,0.3);">
+          <h3 style="color:#f0e6e8;margin:0 0 4px;font-size:20px;">欢迎回来</h3>
+          <p style="color:#8c7f84;font-size:13px;margin:0 0 24px;">登录您的账号</p>
+          <div style="margin-bottom:16px;">
+            <div style="color:#8c7f84;font-size:12px;margin-bottom:4px;">手机号</div>
+            <div style="border:1px solid #3a4555;border-radius:8px;padding:10px 14px;color:#6b5e63;font-size:14px;background:#121921;">请输入手机号</div>
+          </div>
+          <div style="margin-bottom:20px;">
+            <div style="color:#8c7f84;font-size:12px;margin-bottom:4px;">密码</div>
+            <div style="border:1px solid #3a4555;border-radius:8px;padding:10px 14px;color:#6b5e63;font-size:14px;background:#121921;">请输入密码</div>
+          </div>
+          <div style="background:linear-gradient(135deg, #e8738a 0%, #d7657c 100%);border-radius:10px;padding:12px;text-align:center;color:#fff;font-weight:600;letter-spacing:4px;">登 录</div>
+          <div style="text-align:right;margin-top:12px;color:#8c7f84;font-size:12px;">忘记密码？</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup-header">🌑 灯光关闭状态</div>
+    <div class="mockup-body">
+      <div style="display:flex;align-items:center;justify-content:center;background:#121921;min-height:400px;padding:40px;gap:48px;flex-wrap:wrap;border-radius:8px;position:relative;">
+        <!-- 台灯 SVG - 关闭状态 -->
+        <div style="width: 200px; height: 320px; display:flex; flex-direction:column; align-items:center; position:relative; z-index:1;">
+          <div style="width:140px;height:80px;background:linear-gradient(180deg, #2d3748 0%, #1a202c 100%);clip-path:polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);border-radius:8px 8px 0 0;position:relative;">
+            <!-- 眼睛朝下（关闭状态 — rotate 180°） -->
+            <div style="position:absolute;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:20px;">
+              <div style="font-size:14px;transform:rotate(180deg);">•‿•</div>
+            </div>
+          </div>
+          <div style="width:36px;height:36px;background:radial-gradient(circle, #3a4555, #2d3748);border-radius:50%;margin-top:-5px;"></div>
+          <div style="width:4px;height:60px;background:linear-gradient(180deg, #4a5568, #2d3748);margin-top:-2px;"></div>
+          <div style="width:80px;height:20px;background:linear-gradient(180deg, #2d3748, #1a202c);border-radius:0 0 12px 12px;margin-top:-1px;"></div>
+          <div style="width:2px;height:50px;background:#5a5060;position:absolute;bottom:-20px;left:40px;">
+            <div style="width:12px;height:12px;background:#4a4050;border-radius:50%;position:absolute;bottom:-12px;left:-5px;"></div>
+          </div>
+        </div>
+
+        <!-- 表单 — 隐藏状态 (opacity:0, 缩小) -->
+        <div style="width:300px;padding:32px 28px;opacity:0.15;transform:scale(0.92);border:1px solid #1e2938;border-radius:16px;filter:blur(2px);">
+          <h3 style="color:#f0e6e8;margin:0 0 4px;font-size:20px;">欢迎回来</h3>
+          <p style="color:#8c7f84;font-size:13px;margin:0 0 24px;">登录您的账号</p>
+          <div style="margin-bottom:16px;">
+            <div style="color:#8c7f84;font-size:12px;margin-bottom:4px;">手机号</div>
+            <div style="border:1px solid #3a4555;border-radius:8px;padding:10px 14px;color:#6b5e63;font-size:14px;background:#121921;">请输入手机号</div>
+          </div>
+          <div style="margin-bottom:20px;">
+            <div style="color:#8c7f84;font-size:12px;margin-bottom:4px;">密码</div>
+            <div style="border:1px solid #3a4555;border-radius:8px;padding:10px 14px;color:#6b5e63;font-size:14px;background:#121921;">请输入密码</div>
+          </div>
+          <div style="background:linear-gradient(135deg, #3a4555, #2d3748);border-radius:10px;padding:12px;text-align:center;color:#6b5e63;font-weight:600;letter-spacing:4px;">登 录</div>
+          <div style="text-align:right;margin-top:12px;color:#6b5e63;font-size:12px;">忘记密码？</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top:24px;">
+  <h3>📐 布局结构说明</h3>
+  <div class="cards">
+    <div class="card">
+      <div class="card-body">
+        <h3>Flex 横向布局</h3>
+        <p>台灯 SVG (200×320px) 与登录表单 (min-width: 300px) 横向并排，<code>gap: 48px</code>，<code>flex-wrap: wrap</code> 响应式换行，小屏自动上下堆叠</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h3>CSS 变量联动</h3>
+        <p><code>--shade-hue</code> 控制灯光随机色相，<code>--on: 0</code>/<code>--on: 1</code> 控制开关状态，所有颜色 transitions 响应变化，表单边框和阴影同步灯光颜色</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h3>拉绳拖拽交互</h3>
+        <p>拉绳 handle 可用 pointer 事件拖拽（垂直方向）。拖拽 ≥50px 触发 toggle。释放时拉绳弹回原位，绳子弹动用 CSS transition + cubic-bezier 模拟</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>🎨 配色轮播 — 不同 hue 值下的灯光效果</h3>
+  <p class="subtitle">每次开灯随机 hue，表单边框和发光同步刷新</p>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;">
+    <div class="card">
+      <div class="card-image" style="background:#121921;padding:24px;text-align:center;border-radius:8px;">
+        <div style="width:60px;height:60px;background:radial-gradient(circle, hsl(350,85%,60%), hsl(350,85%,30%));border-radius:50%;margin:0 auto 8px;box-shadow:0 0 30px hsla(350,85%,60%,0.5);"></div>
+        <span style="color:#bfb4b8;font-size:12px;">hue=350° 玫红</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-image" style="background:#121921;padding:24px;text-align:center;border-radius:8px;">
+        <div style="width:60px;height:60px;background:radial-gradient(circle, hsl(200,85%,55%), hsl(200,85%,25%));border-radius:50%;margin:0 auto 8px;box-shadow:0 0 30px hsla(200,85%,55%,0.5);"></div>
+        <span style="color:#bfb4b8;font-size:12px;">hue=200° 蓝</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-image" style="background:#121921;padding:24px;text-align:center;border-radius:8px;">
+        <div style="width:60px;height:60px;background:radial-gradient(circle, hsl(140,70%,50%), hsl(140,70%,20%));border-radius:50%;margin:0 auto 8px;box-shadow:0 0 30px hsla(140,70%,50%,0.5);"></div>
+        <span style="color:#bfb4b8;font-size:12px;">hue=140° 绿</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-image" style="background:#121921;padding:24px;text-align:center;border-radius:8px;">
+        <div style="width:60px;height:60px;background:radial-gradient(circle, hsl(45,90%,55%), hsl(45,90%,25%));border-radius:50%;margin:0 auto 8px;box-shadow:0 0 30px hsla(45,90%,55%,0.5);"></div>
+        <span style="color:#bfb4b8;font-size:12px;">hue=45° 暖金</span>
+      </div>
+    </div>
+  </div>
+</div>

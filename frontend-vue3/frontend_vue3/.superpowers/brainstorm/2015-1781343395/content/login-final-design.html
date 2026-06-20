@@ -1,0 +1,276 @@
+<h2>登录页完整设计稿 — 方案 A（深夜台灯 + 粉色灯光）</h2>
+<p class="subtitle">将替换现有 Login.vue，保留手机号登录、忘记密码、注册跳转等功能逻辑</p>
+
+<div class="section">
+  <h3>🎯 完整页面 — 灯光开启状态</h3>
+  <div class="mockup">
+    <div class="mockup-body" style="padding:0;">
+      <div style="background:#121921;min-height:520px;display:flex;align-items:center;justify-content:center;padding:48px 32px;gap:56px;flex-wrap:wrap;position:relative;overflow:hidden;font-family:'Inter','PingFang SC','Microsoft YaHei',sans-serif;">
+
+        <!-- 光晕背景层 -->
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle, rgba(232,115,138,0.18) 0%, rgba(232,115,138,0.06) 35%, transparent 70%);pointer-events:none;"></div>
+        <div style="position:absolute;top:30%;left:20%;width:300px;height:400px;background:radial-gradient(ellipse at 50% 30%, rgba(232,115,138,0.12) 0%, transparent 60%);pointer-events:none;"></div>
+
+        <!-- ===== 台灯 SVG ===== -->
+        <div style="position:relative;z-index:2;flex-shrink:0;">
+          <svg width="180" height="360" viewBox="0 0 180 360" xmlns="http://www.w3.org/2000/svg">
+            <!-- 灯光光晕 -->
+            <defs>
+              <radialGradient id="glow" cx="50%" cy="0%" r="80%">
+                <stop offset="0%" stop-color="#e8738a" stop-opacity="0.5"/>
+                <stop offset="50%" stop-color="#e8738a" stop-opacity="0.15"/>
+                <stop offset="100%" stop-color="#e8738a" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="bulbGrad" cx="50%" cy="40%">
+                <stop offset="0%" stop-color="#fdf2f4"/>
+                <stop offset="40%" stop-color="#e8738a"/>
+                <stop offset="100%" stop-color="#c8576e"/>
+              </radialGradient>
+              <filter id="bulbGlow">
+                <feGaussianBlur stdDeviation="6" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+
+            <!-- 光晕大圈 -->
+            <ellipse cx="90" cy="115" rx="100" ry="70" fill="url(#glow)" opacity="0.7"/>
+
+            <!-- 底座 -->
+            <ellipse cx="90" cy="325" rx="45" ry="12" fill="#3a4555"/>
+            <rect x="50" y="305" width="80" height="20" rx="6" fill="#4a5568"/>
+            <ellipse cx="90" cy="305" rx="40" ry="8" fill="#5a6577"/>
+
+            <!-- 灯杆 -->
+            <rect x="87" y="190" width="6" height="118" rx="3" fill="#4a5568"/>
+            <rect x="88" y="192" width="2" height="114" fill="#5a6577" opacity="0.4"/>
+
+            <!-- 灯罩 -->
+            <path d="M40 190 Q40 145 90 130 Q140 145 140 190 Z" fill="#4a5568" stroke="#5a6577" stroke-width="0.5"/>
+            <path d="M46 188 Q90 148 134 188" fill="none" stroke="#5a6577" stroke-width="1" opacity="0.3"/>
+
+            <!-- 灯罩内发光 -->
+            <path d="M55 180 Q90 148 125 180 Z" fill="#e8738a" opacity="0.15"/>
+
+            <!-- 灯泡 -->
+            <circle cx="90" cy="200" r="16" fill="url(#bulbGrad)" filter="url(#bulbGlow)"/>
+
+            <!-- 眼睛 — 开启状态 (0°) -->
+            <g transform="translate(90, 162)">
+              <ellipse cx="-12" cy="0" rx="6" ry="7" fill="#1a202c"/>
+              <ellipse cx="12" cy="0" rx="6" ry="7" fill="#1a202c"/>
+              <!-- 高光 -->
+              <circle cx="-10" cy="-2" r="2.5" fill="#fff" opacity="0.7"/>
+              <circle cx="14" cy="-2" r="2.5" fill="#fff" opacity="0.7"/>
+              <!-- 微笑 -->
+              <path d="M-5 5 Q0 9 5 5" fill="none" stroke="#1a202c" stroke-width="1" stroke-linecap="round"/>
+            </g>
+
+            <!-- 拉绳 -->
+            <line x1="130" y1="188" x2="130" y2="260" stroke="#6b5e63" stroke-width="2" stroke-linecap="round"/>
+            <!-- 拉环 -->
+            <circle cx="130" cy="268" r="8" fill="none" stroke="#8c7f84" stroke-width="2.5"/>
+            <circle cx="130" cy="268" r="3" fill="#8c7f84"/>
+
+            <!-- 底座装饰线 -->
+            <line x1="70" y1="318" x2="110" y2="318" stroke="#5a6577" stroke-width="0.5" opacity="0.5"/>
+          </svg>
+          <!-- 拉绳提示 -->
+          <div style="text-align:center;margin-top:-12px;font-size:11px;color:#8c7f84;opacity:0.7;">↓ 下拉拉绳开关灯</div>
+        </div>
+
+        <!-- ===== 登录表单 ===== -->
+        <div style="position:relative;z-index:2;width:320px;background:rgba(22,30,40,0.9);border:1px solid rgba(232,115,138,0.35);border-radius:16px;padding:36px 30px;box-shadow:0 0 36px rgba(232,115,138,0.12),0 0 80px rgba(232,115,138,0.05),0 8px 40px rgba(0,0,0,0.3);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);">
+          <!-- 标题 -->
+          <h2 style="margin:0 0 4px;font-size:22px;font-weight:700;color:#f0e6e8;">欢迎回来</h2>
+          <p style="margin:0 0 28px;font-size:13px;color:#8c7f84;">登录您的账号</p>
+
+          <!-- 手机号 -->
+          <div style="margin-bottom:18px;">
+            <label style="display:block;font-size:12px;color:#8c7f84;margin-bottom:6px;font-weight:500;">手机号</label>
+            <div style="display:flex;align-items:center;border:1.5px solid #2d3748;border-radius:10px;padding:0 14px;height:44px;background:#121921;transition:border-color 0.3s,box-shadow 0.3s;">
+              <span style="color:#6b5e63;margin-right:8px;">📱</span>
+              <span style="color:#4a5568;font-size:14px;">请输入手机号</span>
+            </div>
+          </div>
+
+          <!-- 密码 -->
+          <div style="margin-bottom:24px;">
+            <label style="display:block;font-size:12px;color:#8c7f84;margin-bottom:6px;font-weight:500;">密码</label>
+            <div style="display:flex;align-items:center;border:1.5px solid #2d3748;border-radius:10px;padding:0 14px;height:44px;background:#121921;transition:border-color 0.3s,box-shadow 0.3s;">
+              <span style="color:#6b5e63;margin-right:8px;">🔒</span>
+              <span style="color:#4a5568;font-size:14px;">请输入密码</span>
+            </div>
+          </div>
+
+          <!-- 登录按钮 -->
+          <div style="width:100%;height:46px;background:linear-gradient(135deg,#e8738a,#d7657c);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;font-weight:600;letter-spacing:6px;cursor:pointer;margin-bottom:16px;box-shadow:0 4px 16px rgba(232,115,138,0.25);">
+            登 录
+          </div>
+
+          <!-- 底部链接 -->
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:12px;color:#6b5e63;cursor:pointer;">忘记密码？</span>
+            <span style="font-size:12px;color:#6b5e63;">
+              没有账号？<span style="color:#e8738a;cursor:pointer;">去注册</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- 页面底部 -->
+        <div style="position:absolute;bottom:16px;left:0;right:0;text-align:center;color:#4a5568;font-size:11px;z-index:1;">
+          2026-06-13 · 试卷出题系统 · Powered by PaperGen
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>🔦 输入框获焦 — 彩色发光边框</h3>
+  <div class="mockup">
+    <div class="mockup-body" style="padding:0;">
+      <div style="background:#121921;padding:40px 32px;display:flex;gap:24px;justify-content:center;flex-wrap:wrap;">
+        <!-- 普通状态 -->
+        <div style="width:280px;">
+          <div style="color:#8c7f84;font-size:12px;margin-bottom:6px;">默认状态</div>
+          <div style="border:1.5px solid #2d3748;border-radius:10px;padding:12px 14px;background:#121921;color:#4a5568;font-size:14px;">请输入手机号</div>
+        </div>
+        <!-- 获焦状态 -->
+        <div style="width:280px;">
+          <div style="color:#8c7f84;font-size:12px;margin-bottom:6px;">获焦状态 (hue=348°)</div>
+          <div style="border:1.5px solid rgba(232,115,138,0.6);border-radius:10px;padding:12px 14px;background:#121921;color:#f0e6e8;font-size:14px;box-shadow:0 0 14px rgba(232,115,138,0.2),inset 0 0 8px rgba(232,115,138,0.04);">13812345678</div>
+        </div>
+        <!-- 随机 hue -->
+        <div style="width:280px;">
+          <div style="color:#8c7f84;font-size:12px;margin-bottom:6px;">获焦状态 (hue=155° 绿)</div>
+          <div style="border:1.5px solid hsla(155,70%,50%,0.6);border-radius:10px;padding:12px 14px;background:#121921;color:#f0e6e8;font-size:14px;box-shadow:0 0 14px hsla(155,70%,50%,0.2),inset 0 0 8px hsla(155,70%,50%,0.04);">********</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>📱 响应式 — 窄屏上下堆叠</h3>
+  <div class="mockup">
+    <div class="mockup-body" style="padding:0;">
+      <div style="background:#121921;min-height:600px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px 24px;gap:32px;position:relative;overflow:hidden;">
+        <!-- 光晕 -->
+        <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 25%, rgba(232,115,138,0.12) 0%, transparent 55%);pointer-events:none;"></div>
+
+        <!-- 台灯 — 缩小 -->
+        <div style="z-index:1;">
+          <svg width="120" height="240" viewBox="0 0 180 360" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="90" cy="115" rx="80" ry="55" fill="url(#glow-sm)" opacity="0.6"/>
+            <ellipse cx="90" cy="325" rx="45" ry="12" fill="#3a4555"/>
+            <rect x="50" y="305" width="80" height="20" rx="6" fill="#4a5568"/>
+            <ellipse cx="90" cy="305" rx="40" ry="8" fill="#5a6577"/>
+            <rect x="87" y="190" width="6" height="118" rx="3" fill="#4a5568"/>
+            <path d="M40 190 Q40 145 90 130 Q140 145 140 190 Z" fill="#4a5568"/>
+            <circle cx="90" cy="200" r="16" fill="#e8738a" opacity="0.8"/>
+            <circle cx="130" cy="268" r="8" fill="none" stroke="#8c7f84" stroke-width="2.5"/>
+            <line x1="130" y1="188" x2="130" y2="260" stroke="#6b5e63" stroke-width="2"/>
+          </svg>
+          <div style="text-align:center;font-size:10px;color:#6b5e63;">↓ 下拉拉绳</div>
+        </div>
+
+        <!-- 表单 -->
+        <div style="z-index:1;width:100%;max-width:320px;background:rgba(22,30,40,0.9);border:1px solid rgba(232,115,138,0.35);border-radius:16px;padding:32px 24px;box-shadow:0 0 30px rgba(232,115,138,0.1);">
+          <h2 style="margin:0 0 4px;font-size:20px;color:#f0e6e8;">欢迎回来</h2>
+          <p style="margin:0 0 24px;font-size:12px;color:#8c7f84;">登录您的账号</p>
+          <div style="border:1.5px solid #2d3748;border-radius:10px;padding:12px 14px;margin-bottom:14px;background:#121921;color:#4a5568;font-size:14px;">请输入手机号</div>
+          <div style="border:1.5px solid #2d3748;border-radius:10px;padding:12px 14px;margin-bottom:20px;background:#121921;color:#4a5568;font-size:14px;">请输入密码</div>
+          <div style="height:44px;background:linear-gradient(135deg,#e8738a,#d7657c);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;letter-spacing:6px;margin-bottom:14px;">登 录</div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;color:#6b5e63;">
+            <span>忘记密码？</span><span>没有账号？<span style="color:#e8738a;">去注册</span></span>
+          </div>
+        </div>
+
+        <div style="color:#4a5568;font-size:10px;text-align:center;">2026-06-13 · 试卷出题系统</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>🎭 台灯关闭 vs 开启 — 状态对比</h3>
+  <div class="split">
+    <div class="mockup">
+      <div class="mockup-header">🌑 关闭 (--on: 0)</div>
+      <div class="mockup-body" style="padding:0;">
+        <div style="background:#121921;padding:40px 20px;display:flex;flex-direction:column;align-items:center;gap:16px;">
+          <svg width="140" height="280" viewBox="0 0 180 360" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="90" cy="325" rx="45" ry="12" fill="#2d3748"/>
+            <rect x="50" y="305" width="80" height="20" rx="6" fill="#3a4555"/>
+            <ellipse cx="90" cy="305" rx="40" ry="8" fill="#4a5568"/>
+            <rect x="87" y="190" width="6" height="118" rx="3" fill="#3a4555"/>
+            <path d="M40 190 Q40 145 90 130 Q140 145 140 190 Z" fill="#3a4555"/>
+            <circle cx="90" cy="200" r="16" fill="#2d3748"/>
+            <!-- 眼睛朝下 rotate(180°) -->
+            <g transform="translate(90, 162) rotate(180)">
+              <ellipse cx="-12" cy="0" rx="6" ry="7" fill="#1a202c"/>
+              <ellipse cx="12" cy="0" rx="6" ry="7" fill="#1a202c"/>
+              <circle cx="-10" cy="-2" r="2" fill="#3a4555" opacity="0.5"/>
+              <circle cx="14" cy="-2" r="2" fill="#3a4555" opacity="0.5"/>
+              <path d="M-5 5 Q0 9 5 5" fill="none" stroke="#1a202c" stroke-width="1"/>
+            </g>
+            <line x1="130" y1="188" x2="130" y2="260" stroke="#4a4050" stroke-width="2"/>
+            <circle cx="130" cy="268" r="8" fill="none" stroke="#5a5060" stroke-width="2.5"/>
+          </svg>
+          <div style="font-size:11px;color:#4a5568;">← 表单隐藏，等待开灯</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mockup">
+      <div class="mockup-header">💡 开启 (--on: 1)</div>
+      <div class="mockup-body" style="padding:0;">
+        <div style="background:#121921;padding:40px 20px;display:flex;flex-direction:column;align-items:center;gap:16px;">
+          <svg width="140" height="280" viewBox="0 0 180 360" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="90" cy="115" rx="90" ry="60" fill="url(#glow-compare)" opacity="0.6"/>
+            <ellipse cx="90" cy="325" rx="45" ry="12" fill="#3a4555"/>
+            <rect x="50" y="305" width="80" height="20" rx="6" fill="#4a5568"/>
+            <ellipse cx="90" cy="305" rx="40" ry="8" fill="#5a6577"/>
+            <rect x="87" y="190" width="6" height="118" rx="3" fill="#4a5568"/>
+            <path d="M40 190 Q40 145 90 130 Q140 145 140 190 Z" fill="#4a5568"/>
+            <circle cx="90" cy="200" r="16" fill="#e8738a" filter="url(#bulbGlow)"/>
+            <g transform="translate(90, 162)">
+              <ellipse cx="-12" cy="0" rx="6" ry="7" fill="#1a202c"/>
+              <ellipse cx="12" cy="0" rx="6" ry="7" fill="#1a202c"/>
+              <circle cx="-10" cy="-2" r="2.5" fill="#fff" opacity="0.7"/>
+              <circle cx="14" cy="-2" r="2.5" fill="#fff" opacity="0.7"/>
+              <path d="M-5 5 Q0 9 5 5" fill="none" stroke="#1a202c" stroke-width="1"/>
+            </g>
+            <line x1="130" y1="188" x2="130" y2="260" stroke="#6b5e63" stroke-width="2"/>
+            <circle cx="130" cy="268" r="8" fill="none" stroke="#8c7f84" stroke-width="2.5"/>
+          </svg>
+          <div style="font-size:11px;color:#e8738a;">✨ 表单弹出，灯光照亮</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>⚙️ CSS 变量联动机制</h3>
+  <div class="cards">
+    <div class="card">
+      <div class="card-body">
+        <h3><code>--on: 0 | 1</code></h3>
+        <p>控制：灯泡发光/熄灭（opacity过渡）、眼睛旋转（transform: rotate）、表单出现/隐藏（opacity + scale）、光晕显示/隐藏、按钮渐变亮度</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h3><code>--shade-hue: 340~355</code></h3>
+        <p>控制：灯泡颜色 <code>hsl(var(--shade-hue), 85%, 60%)</code>、光晕颜色、表单边框颜色、输入框获焦发光颜色、按钮渐变主色、所有发光 shadow 颜色</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h3>拉绳拖拽</h3>
+        <p>pointerdown → pointermove（计算 dy）→ pointerup；dy ≥ 50px 触发 toggle；释放时 CSS transition <code>cubic-bezier(0.34, 1.56, 0.64, 1)</code> 弹回原位 + 绳子弹跳；同时播放 Web Audio 咔哒声</p>
+      </div>
+    </div>
+  </div>
+</div>

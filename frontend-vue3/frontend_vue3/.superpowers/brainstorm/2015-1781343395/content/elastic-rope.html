@@ -1,0 +1,143 @@
+<h2>弹性拉绳 — 任意方向拖拽</h2>
+<p class="subtitle">指针跟随 + 弹性伸缩 + 释放弹回，拉超过 50px 触发开关</p>
+
+<div class="section">
+  <h3>拉绳物理模型</h3>
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;">
+    <div class="card">
+      <div class="card-body">
+        <h3>静止状态</h3>
+        <p>拉环位于锚点正下方，绳子呈自然垂直线段。锚点固定在灯罩右侧 (145, 190)。</p>
+        <div style="background:#1a1f2e;padding:24px;border-radius:12px;text-align:center;">
+          <svg width="160" height="200" viewBox="0 0 200 240">
+            <!-- 灯罩一角 -->
+            <path d="M120,40 Q165,80 165,130 L165,130" fill="none" stroke="#e8e3de" stroke-width="30" opacity="0.5"/>
+            <!-- 锚点 -->
+            <circle cx="145" cy="85" r="4" fill="#f5a623"/>
+            <!-- 自然垂直线 -->
+            <line x1="145" y1="85" x2="145" y2="180" stroke="#a0988e" stroke-width="2"/>
+            <!-- 拉环 -->
+            <circle cx="145" cy="188" r="12" fill="none" stroke="#b8b0a8" stroke-width="2.5"/>
+            <circle cx="145" cy="188" r="5" fill="#c8c0b8"/>
+            <text x="145" y="215" text-anchor="middle" fill="#8c8076" font-size="10">拖拽我</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h3>拉伸状态（任意方向）</h3>
+        <p>拉环跟随指针移动，绳子从锚点拉伸至指针位置。超出 50px 触发阈值高亮。</p>
+        <div style="background:#1a1f2e;padding:24px;border-radius:12px;text-align:center;">
+          <svg width="160" height="200" viewBox="0 0 200 240">
+            <circle cx="145" cy="85" r="4" fill="#f5a623"/>
+            <!-- 拉伸到右下 -->
+            <line x1="145" y1="85" x2="110" y2="175" stroke="#a0988e" stroke-width="2" stroke-dasharray="4,2" opacity="0.3"/>
+            <line x1="145" y1="85" x2="110" y2="175" stroke="#e8a87c" stroke-width="2.5" opacity="0.6"/>
+            <!-- 阈值圈 -->
+            <circle cx="145" cy="85" r="50" fill="none" stroke="rgba(245,166,35,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
+            <text x="145" y="78" text-anchor="middle" fill="#f5a623" font-size="9" opacity="0.6">阈值 50px</text>
+            <!-- 拉环偏移 -->
+            <circle cx="110" cy="175" r="12" fill="none" stroke="#e8a87c" stroke-width="2.5"/>
+            <circle cx="110" cy="175" r="5" fill="#e8a87c"/>
+            <text x="110" y="200" text-anchor="middle" fill="#e8a87c" font-size="10">释放触发!</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>各方向拉伸示意</h3>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;">
+    <div class="card">
+      <div class="card-image" style="background:#1a1f2e;padding:20px;text-align:center;border-radius:12px;">
+        <svg width="100" height="140" viewBox="0 0 200 240">
+          <circle cx="145" cy="85" r="4" fill="#f5a623"/>
+          <circle cx="145" cy="85" r="50" fill="none" stroke="rgba(245,166,35,0.15)" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="145" y1="85" x2="145" y2="175" stroke="#e8a87c" stroke-width="2.5"/>
+          <circle cx="145" cy="183" r="12" fill="none" stroke="#e8a87c" stroke-width="2.5"/>
+          <circle cx="145" cy="183" r="5" fill="#e8a87c"/>
+        </svg>
+        <span style="display:block;color:#8c8076;font-size:11px;margin-top:4px;">↓ 正下方</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-image" style="background:#1a1f2e;padding:20px;text-align:center;border-radius:12px;">
+        <svg width="100" height="140" viewBox="0 0 200 240">
+          <circle cx="145" cy="85" r="4" fill="#f5a623"/>
+          <circle cx="145" cy="85" r="50" fill="none" stroke="rgba(245,166,35,0.15)" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="145" y1="85" x2="100" y2="155" stroke="#e8a87c" stroke-width="2.5"/>
+          <circle cx="100" cy="163" r="12" fill="none" stroke="#e8a87c" stroke-width="2.5"/>
+          <circle cx="100" cy="163" r="5" fill="#e8a87c"/>
+        </svg>
+        <span style="display:block;color:#8c8076;font-size:11px;margin-top:4px;">↙ 左下</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-image" style="background:#1a1f2e;padding:20px;text-align:center;border-radius:12px;">
+        <svg width="100" height="140" viewBox="0 0 200 240">
+          <circle cx="145" cy="85" r="4" fill="#f5a623"/>
+          <circle cx="145" cy="85" r="50" fill="none" stroke="rgba(245,166,35,0.15)" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="145" y1="85" x2="180" y2="135" stroke="#e8a87c" stroke-width="2.5"/>
+          <circle cx="180" cy="143" r="12" fill="none" stroke="#e8a87c" stroke-width="2.5"/>
+          <circle cx="180" cy="143" r="5" fill="#e8a87c"/>
+        </svg>
+        <span style="display:block;color:#8c8076;font-size:11px;margin-top:4px;">↘ 右下</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-image" style="background:#1a1f2e;padding:20px;text-align:center;border-radius:12px;">
+        <svg width="100" height="140" viewBox="0 0 200 240">
+          <circle cx="145" cy="85" r="4" fill="#f5a623"/>
+          <circle cx="145" cy="85" r="50" fill="none" stroke="rgba(245,166,35,0.15)" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="145" y1="85" x2="175" y2="60" stroke="#e8a87c" stroke-width="2.5"/>
+          <circle cx="175" cy="52" r="12" fill="none" stroke="#e8a87c" stroke-width="2.5"/>
+          <circle cx="175" cy="52" r="5" fill="#e8a87c"/>
+        </svg>
+        <span style="display:block;color:#8c8076;font-size:11px;margin-top:4px;">↗ 右上方</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>交互流程</h3>
+  <div class="cards" style="grid-template-columns:repeat(3,1fr);">
+    <div class="card">
+      <div class="card-body">
+        <h3>1️⃣ pointerdown</h3>
+        <p>在拉环上按下时捕获指针，记录锚点坐标和初始偏移。设置 <code>pointer-events: none</code> 给灯罩防止误触。开始跟踪 <code>setPointerCapture</code></p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h3>2️⃣ pointermove</h3>
+        <p>实时计算指针到锚点的距离和角度，更新拉环的 <code>cx/cy</code> 和绳子的 <code>x2/y2</code>。距离超过 50px 时拉环变色提示（触发阈值已到）</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h3>3️⃣ pointerup</h3>
+        <p>距离 ≥50px → toggle 开关 + 播放咔哒声 + 随机 hue。释放后拉环 <code>transition: all 0.5s cubic-bezier(0.34,1.56,0.64,1)</code> 弹回锚点下方原位</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>实现要点</h3>
+  <div class="card">
+    <div class="card-body" style="font-family:monospace;font-size:13px;line-height:1.8;">
+      <div style="color:#f5a623;">// 拉环位置：动态更新 SVG circle + line 属性</div>
+      <div>handleX = clamp(anchorX + dx, anchorX - 120, anchorX + 120)</div>
+      <div>handleY = clamp(anchorY + dy, anchorY - 80, anchorY + 120)</div>
+      <div style="margin-top:4px;color:#8c8076;">// 距离计算</div>
+      <div>dist = Math.hypot(handleX - anchorX, handleY - anchorY)</div>
+      <div style="margin-top:4px;color:#8c8076;">// 弹簧回弹 CSS</div>
+      <div>transition: cx 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),</div>
+      <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cy 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);</div>
+    </div>
+  </div>
+</div>

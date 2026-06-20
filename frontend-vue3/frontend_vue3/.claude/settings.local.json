@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173/)",
+      "Bash(npx vite *)",
+      "Bash(xxd)",
+      "Bash(bash *)",
+      "Bash(python3 *)",
+      "Bash(py --version)",
+      "Read(//c/Users/Administrator/AppData/Local/Programs/**)",
+      "Bash(python _analyze_img.py)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8080/api/auth/status)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173/login)",
+      "Bash(curl -s http://localhost:5173/src/components/DeskLamp.vue)",
+      "Bash(curl -s http://localhost:5173/src/views/auth/Login.vue)",
+      "Bash(pkill -f \"vite\")",
+      "Bash(node -e ' *)"
+    ]
+  }
+}
